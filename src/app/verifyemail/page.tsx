@@ -15,7 +15,12 @@ export default function VerifyEmailPage() {
       setVerified(true);
     } catch (error: any) {
       setError(true);
-      console.log(error.response.data);
+
+      if (axios.isAxiosError(error)) {
+        console.log(error.response?.data);
+      } else {
+        console.log("unexpected error", error);
+      }
     }
   };
 

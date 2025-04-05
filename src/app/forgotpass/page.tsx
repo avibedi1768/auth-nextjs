@@ -24,9 +24,10 @@ export default function ForgotPasswordPage() {
 
       await axios.post("/api/users/forgotpass", { token, pass });
       setUpdated(true);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setError(true);
-      console.log(error.response.data);
+      if (axios.isAxiosError(error)) console.log(error.response?.data);
+      else console.log("unexpected error", error);
     }
   };
 

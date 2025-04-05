@@ -13,7 +13,6 @@ export async function connect() {
       console.log("mongoDB connection error", err);
       process.exit();
     });
-    
   } catch (error) {
     console.log("something went wrong");
     console.log(error);

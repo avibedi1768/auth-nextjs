@@ -54,7 +54,9 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
 
     const mailresponse = await transport.sendMail(mailOptions);
     return mailresponse;
-  } catch (error: any) {
-    throw new Error(error.message);
+  } catch (error: unknown) {
+    if (error instanceof Error) throw new Error(error.message);
+
+    throw new Error("something went wrong");
   }
 };

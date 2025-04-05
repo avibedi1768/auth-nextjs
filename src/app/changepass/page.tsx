@@ -11,8 +11,9 @@ export default function ChangePasswordPage() {
     try {
       await axios.post("/api/users/changepass", { email });
       setEmailSent(true);
-    } catch (error: any) {
-      console.log(error.response.data);
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) console.log(error.response?.data);
+      else console.log("unexpected error", error);
     }
   };
 

@@ -1,13 +1,13 @@
 // for profile/abc -> individual user
 
-// app/profile/[id]/page.tsx
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
+export default async function UserProfile({
+  params,
+}: {
+  params: { id: string };
+}) {
+  console.log("params", params);
+  console.log("id", params.id);
 
-export default function UserProfile({ params }: PageProps) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Profile</h1>
@@ -18,6 +18,8 @@ export default function UserProfile({ params }: PageProps) {
           {params.id}
         </span>
       </p>
+
+      {/* <div>{JSON.stringify(params)}</div> */}
     </div>
   );
 }

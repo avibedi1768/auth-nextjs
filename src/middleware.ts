@@ -10,11 +10,12 @@ export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   const isPublicPath =
-    path === "/login" || path === "/signup" || path === "/verifyemail";
+    path === "/login" || path === "/signup";
+    // path === "/login" || path === "/signup" || path === "/verifyemail";
   const token = request.cookies.get("token")?.value || "";
 
   if (isPublicPath && token) {
-    return NextResponse.redirect(new URL("/", request.nextUrl));
+    return NextResponse.redirect(new URL("/profile", request.nextUrl));
   }
 
   if (!isPublicPath && !token) {
@@ -25,7 +26,11 @@ export function middleware(request: NextRequest) {
 // See "Matching Paths" below to learn more
 //matching
 export const config = {
-  matcher: ["/", "/profile", "/login", "/signup", "/verifyemail"],
+  //with this, home page is free to visit. others are restricted
+  matcher: ["/profile", "/login", "/signup", "/verifyemail"],
+
+  // all pages mentioned are restricted
+  // matcher: ["/", "/profile", "/login", "/signup", "/verifyemail"],
 };
 
 // '/:profile*'

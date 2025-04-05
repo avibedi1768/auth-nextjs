@@ -1,10 +1,17 @@
 // for profile/abc -> individual user
 
-export default async function UserProfile({
-  params,
-}: {
-  params: { id: string };
-}) {
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function UserProfile({ params }: Params) {
+  // export default async function UserProfile({
+  //   params,
+  // }: {
+  //   params: { id: string };
+  // }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Profile</h1>

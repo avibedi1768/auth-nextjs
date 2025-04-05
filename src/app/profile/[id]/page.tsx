@@ -1,17 +1,16 @@
 // for profile/abc -> individual user
 
-type Params = {
+// app/profile/[id]/page.tsx
+
+import { FC } from "react";
+
+interface UserProfileProps {
   params: {
     id: string;
   };
-};
+}
 
-export default async function UserProfile({ params }: Params) {
-  // export default async function UserProfile({
-  //   params,
-  // }: {
-  //   params: { id: string };
-  // }) {
+const UserProfile: FC<UserProfileProps> = ({ params }) => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Profile</h1>
@@ -24,4 +23,6 @@ export default async function UserProfile({ params }: Params) {
       </p>
     </div>
   );
-}
+};
+
+export default UserProfile;

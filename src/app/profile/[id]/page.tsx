@@ -1,13 +1,13 @@
 // for profile/abc -> individual user
 
 // app/profile/[id]/page.tsx
-type Props = {
+interface PageProps {
   params: {
     id: string;
   };
-};
+}
 
-export default function UserProfile({ params }: Props) {
+export default function UserProfile({ params }: PageProps) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <h1>Profile</h1>

@@ -1,7 +1,11 @@
 // for profile/abc -> individual user
 "use client";
 
-export default function Page({ params }: { params: { id: string } }) {
+import { useParams } from "next/navigation";
+
+export default function Page() {
+  const params = useParams();
+
   console.log("params", params);
   console.log("id", params.id);
 

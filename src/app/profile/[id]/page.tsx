@@ -1,10 +1,7 @@
 // for profile/abc -> individual user
+"use client";
 
-export default async function UserProfile({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function Page({ params }: { params: { id: string } }) {
   console.log("params", params);
   console.log("id", params.id);
 
